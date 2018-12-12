@@ -1,0 +1,2 @@
+environment.txt
+File containing details of your test systems (guests and host): e.g. Software versions, CPU features as of /proc/cpuinfo, …
