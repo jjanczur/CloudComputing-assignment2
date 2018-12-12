@@ -12,6 +12,22 @@
 #define IN 0
 #define OUT 1
 
+// When not set to 0, debug output will be on.
+int DEBUG;
+
+/**
+ * Prints debug information to stderr, if DEBUG is not set to 0.
+ *
+ * @param str String to print
+ */
+void debug(char* str)
+{
+    if(DEBUG)
+    {
+        fprintf(stderr, "[DEBUG] %s \n", str);
+    }
+}
+
 /**
  * Reads an integer value from the given pipe.
  *
@@ -86,19 +102,26 @@ int sum(int min, int max)
     pid_t pidl;
     pid_t pidr;
 
-    pidl = fork();
+    while((pidl = fork()) < 0 && errno == EAGAIN)
+    {
+        debug("Fork left failed (will retry)");
+    }
+
     if(pidl < 0)
     {
-        perror("Fork left");
+        perror("Fork left failed");
         return -1;
     }
     else if(pidl > 0)
     {
-        pidr = fork();
+        while((pidr = fork()) < 0 && errno == EAGAIN)
+        {
+            debug("Fork right failed (will retry)");
+        }
 
         if(pidr < 0)
         {
-            perror("Fork right");
+            perror("Fork right failed");
             return -1;
         }
         else if(pidr > 0)
@@ -138,6 +161,8 @@ int sum(int min, int max)
         {
             // CHILD RIGHT
 
+            debug("Fork right SUCCEEDED");
+
 
             // Close the unneeded descriptors
 
@@ -161,6 +186,8 @@ int sum(int min, int max)
     else
     {
         // CHILD LEFT
+
+        debug("Fork left SUCCEEDED");
 
 
         // Close the unneeded descriptors
@@ -187,8 +214,17 @@ int main(int argc, char** argv)
 {
     if(argc < 3)
     {
-        printf("Arguments needed: min max");
+        printf("Arguments needed: min max [debug] \n");
         return -1;
+    }
+
+    if(argc >= 4)
+    {
+        DEBUG = 1;
+    }
+    else
+    {
+        DEBUG = 0;
     }
 
     int min = atoi(argv[1]);
