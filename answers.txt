@@ -1,0 +1,33 @@
+answers.txt
+Group 29
+1. Jacek Janczura - jacek.janczura@campus.tu-berlin.de - 404975
+2. Igor Molecan - molcean@campus.tu-berlin.de - 398366
+3. Michał Zwolak - michal.zwolak@campus.tu-berlin.de - 403970
+4. Mikołaj Robakowski - mikolaj.robakowski@campus.tu-berlin.de - 404926
+
+CPU benchmark questions:
+1. Look at your LINPACK measurements. How do they differ between the platforms, what are the main reasons for the differences?
+
+
+
+Memory benchmark questions:
+1. Look at your memsweep measurements. How do they differ between the platforms, what are the main reasons for the differences?
+
+
+
+Disk benchmark questions:
+1. Look at your disk write measurements. How do they differ between the platforms, what are the main reasons for the differences?
+
+2. Which disk format did you use for qemu? How do you expect this benchmark to behave differently on other disk formats?
+
+
+
+Fork benchmark questions:
+1. Look at your fork sum measurements. How do they differ between the platforms, what are the main reasons for the differences?
+
+
+
+Nginx benchmark questions:
+1. Look at your nginx measurements. How do they differ between the platforms, what are the main reasons for the differences?
+
+2. How are these measurements related to the disk benchmark findings?

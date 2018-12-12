@@ -1,0 +1,2 @@
+listing-setup.txt
+File containing all commands and inputs you used for installing the tools and preparing your VM image, including comments explaining what the commands do
