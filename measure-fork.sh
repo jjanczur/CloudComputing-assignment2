@@ -9,4 +9,4 @@ fi
 
 echo "Running..." 1>&2
 
-echo $(./${EXECUTABLE} 1 1000)
+echo $(./${EXECUTABLE} $1 $2 $3)

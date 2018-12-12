@@ -88,12 +88,26 @@ int sum(int min, int max)
     int fdl[2];
     int fdr[2];
 
+    while(pipe(fdl) < 0 && errno == ENFILE)
+    {
+        // System limit on open files reached, wait until something is closed
+
+        debug("Pipe left failed (will retry)");
+    }
+
+    while(pipe(fdr) < 0 && errno == ENFILE)
+    {
+        // System limit on open files reached, wait until something is closed
+
+        debug("Pipe right failed (will retry)");
+    }
+
     if(pipe(fdl) < 0 || pipe(fdr) < 0)
     {
-        // Creation of a new pipe failed
+        // Creation of a pipe failed due to another reason
 
         perror("Pipe");
-        exit(-1);
+        return -1;
     }
 
 
@@ -104,11 +118,15 @@ int sum(int min, int max)
 
     while((pidl = fork()) < 0 && errno == EAGAIN)
     {
+        // Not enough resources
+
         debug("Fork left failed (will retry)");
     }
 
     if(pidl < 0)
     {
+        // Fork failed due to another reason
+
         perror("Fork left failed");
         return -1;
     }
@@ -116,11 +134,15 @@ int sum(int min, int max)
     {
         while((pidr = fork()) < 0 && errno == EAGAIN)
         {
+            // Not enough resources
+
             debug("Fork right failed (will retry)");
         }
 
         if(pidr < 0)
         {
+            // Fork failed due to another reason
+
             perror("Fork right failed");
             return -1;
         }
