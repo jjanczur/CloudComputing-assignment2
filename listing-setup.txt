@@ -6,3 +6,6 @@ docker build -f "cpu.Dockerfile" -t "cpu-benchmark" .
 
 #To run just created image in docker container
 docker run "cpu-benchmark"
+
+#To run detached image, with ports mapping between host and container
+docker run -d -p 80:80 "nginx-benchmark"
