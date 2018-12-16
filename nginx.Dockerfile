@@ -15,8 +15,8 @@ RUN \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
   chown -R www-data:www-data /var/lib/nginx
 
-# MODIFY THIS - FIND PROPER LOCATION FOR NGINX AND USE BIGGER FILE
-COPY answers.txt answers.txt
+# MODIFY THIS - USE BIGGER FILE
+COPY answers.txt /var/www/html/answers.txt
 
 # Define working directory.
 WORKDIR /etc/nginx
