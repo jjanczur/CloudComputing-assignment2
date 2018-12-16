@@ -1,11 +1,31 @@
-#listing-setup.txt
-#File containing all commands and inputs you used for installing the tools and preparing your VM image, including comments explaining what the #commands do
+# listing-setup.txt
+# File containing all commands and inputs you used for installing the tools and preparing your VM image, including
+# comments explaining what the commands do
 
-#To build image from Dockerfile e.g. for cpu benchmark
+# installing qemu with kvm support
+sudo apt install qemu qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+
+# check if kvm kernel module is enabled
+sudo modinfo kvm
+
+# download debian wheezy image
+curl --output=debian.qcow2 https://people.debian.org/~aurel32/qemu/amd64/debian_wheezy_amd64_standard.qcow2
+
+# run debian in qemu
+sudo qemu-system-x86_64 -enable-kvm -hda debian.qcow2 -m 1024 -nographic -net user,hostfwd=tcp::2222-:22 -net nic
+# port 2222 on the host is forwarded to 22 (ssh) on the guest
+
+# to ssh to the virtual machine
+ssh -p 2222 root@localhost # password is `root`
+
+# check internet access in the virtualized os (qemu doesn't support icmp by default, so ping won't work)
+dig google.com
+
+# To build image from Dockerfile e.g. for cpu benchmark
 docker build -f "cpu.Dockerfile" -t "cpu-benchmark" .
 
-#To run just created image in docker container
+# To run just created image in docker container
 docker run "cpu-benchmark"
 
-#To run detached image, with ports mapping between host and container
+# To run detached image, with ports mapping between host and container
 docker run -d -p 80:80 "nginx-benchmark"
