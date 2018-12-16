@@ -1,2 +1,8 @@
-listing-setup.txt
-File containing all commands and inputs you used for installing the tools and preparing your VM image, including comments explaining what the commands do
+#listing-setup.txt
+#File containing all commands and inputs you used for installing the tools and preparing your VM image, including comments explaining what the #commands do
+
+#To build image from Dockerfile e.g. for cpu benchmark
+docker build -f "cpu.Dockerfile" -t "cpu-benchmark" .
+
+#To run just created image in docker container
+docker run "cpu-benchmark"

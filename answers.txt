@@ -1,7 +1,7 @@
 answers.txt
 Group 29
 1. Jacek Janczura - jacek.janczura@campus.tu-berlin.de - 404975
-2. Igor Molecan - molcean@campus.tu-berlin.de - 398366
+2. Igor Molcean - molcean@campus.tu-berlin.de - 398366
 3. Michał Zwolak - michal.zwolak@campus.tu-berlin.de - 403970
 4. Mikołaj Robakowski - mikolaj.robakowski@campus.tu-berlin.de - 404926
 
