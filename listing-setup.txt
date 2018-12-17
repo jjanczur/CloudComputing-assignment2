@@ -30,6 +30,30 @@ dig google.com
 apt-get update && apt-get upgrade
 apt-get install -y fio gcc rsync
 
+# Instal nginx
+sudo apt-get upgrade
+sudo apt-get update
+sudo apt instal nginx
+
+# Create a big file in a localhost localization 
+# This location is different on different systems
+cd /usr/share/nginx/html/
+sudo fallocate -l 512M big-file.txt
+
+# Start nginx
+sudo service nginx start
+
+# For nginx download benchmarking we are using wrk.
+# wrk is a benchmarking tool.
+
+#Instal wrk
+sudo apt-get install build-essential libssl-dev git -y
+git clone https://github.com/wg/wrk.git wrk
+cd wrk
+make
+# move the executable to somewhere in your PATH, ex:
+sudo cp wrk /usr/local/bin
+
 ## /guest-machine
 
 # to synchronize a folder on host and remote machine
