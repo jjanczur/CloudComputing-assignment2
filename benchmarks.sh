@@ -1,18 +1,15 @@
 #!/usr/bin/env bash
 
-CURRENT_TIME=$(date +%s)
-CURRENT_TIME_NICE=$(date)
-
-#add providers [native|qemu|kvm|docker] 
-#if which ec2-metadata > /dev/null; then
- #   PROVIDER=ec2
-#else
+if [ "$PROVIDER" = "" ]; then
     PROVIDER=native
-#fi
+fi
 
-for BENCHMARK in cpu mem disk-random fork nginx; do
+for BENCHMARK in cpu mem disk-random fork; do
     RESULT_FILE=${PROVIDER}-${BENCHMARK}.csv
     BENCHMARK_SCRIPT=./measure-${BENCHMARK}.sh
+
+    CURRENT_TIME=$(date +%s)
+    CURRENT_TIME_NICE=$(date)
 
     if [[ ! -e ${RESULT_FILE} ]]; then
         echo "[$CURRENT_TIME_NICE] creating $RESULT_FILE"

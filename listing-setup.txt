@@ -21,8 +21,16 @@ sudo qemu-system-x86_64 -enable-kvm -hda debian.qcow2 -m 1024 -nographic -net us
 # to ssh to the virtual machine
 ssh -p 2222 root@localhost # password is `root`
 
+## guest machine
+
 # check internet access in the virtualized os (qemu doesn't support icmp by default, so ping won't work)
 dig google.com
+
+# setting up the guest system
+apt-get update && apt-get upgrade
+apt-get install -y fio gcc rsync
+
+## /guest-machine
 
 # to synchronize a folder on host and remote machine
 rsync -avze "ssh -p 2222" $HOST_PATH root@localhost:$GUEST_PATH # rsync must be installed on both systems

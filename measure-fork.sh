@@ -6,4 +6,4 @@ if [[ ! -e ${EXECUTABLE} ]] ; then
 	gcc -O -o $EXECUTABLE "src/"$EXECUTABLE.c -lm
 fi
 
-echo $(./${EXECUTABLE} 1 10000)
+echo $(./${EXECUTABLE} 1 5000)

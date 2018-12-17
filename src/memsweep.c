@@ -15,7 +15,7 @@
 #include <float.h>
 
 /* to prolong execution time change ARR_SIZE */
-#define ARR_SIZE (4048 * 16384)
+#define ARR_SIZE (512 * 16384)
 
 static double second(void)
 {
