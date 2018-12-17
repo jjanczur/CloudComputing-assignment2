@@ -5,5 +5,5 @@ EXECUTABLE="forksum"
 if [[ ! -e ${EXECUTABLE} ]] ; then
 	gcc -O -o $EXECUTABLE "src/"$EXECUTABLE.c -lm
 fi
-
-echo $(./${EXECUTABLE} 1 5000)
+TIMEFORMAT=%R
+{ time ./${EXECUTABLE} 1 5000 > /dev/null ; } 2>&1
