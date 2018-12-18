@@ -33,7 +33,7 @@ apt-get install -y fio gcc rsync
 # Instal nginx
 sudo apt-get upgrade
 sudo apt-get update
-sudo apt instal nginx
+sudo apt-get instal nginx
 
 # Create a big file in a localhost localization 
 # This location is different on different systems
