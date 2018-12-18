@@ -6,7 +6,8 @@ fi
 
 for BENCHMARK in cpu mem disk-random fork; do
     RESULT_FILE=${PROVIDER}-${BENCHMARK}.csv
-    BENCHMARK_SCRIPT=./measure-${BENCHMARK}.sh
+	DOKCERFILE=${BENCHMARK}.Dockerfile
+	BENCHMARK_SCRIPT=./measure-${BENCHMARK}.sh
 
     CURRENT_TIME=$(date +%s)
     CURRENT_TIME_NICE=$(date)
@@ -16,7 +17,13 @@ for BENCHMARK in cpu mem disk-random fork; do
         echo "time,value" > ${RESULT_FILE}
     fi
 
-    RESULT=$(${BENCHMARK_SCRIPT})
+	if [ "$PROVIDER" = "docker" ]; then
+		docker build -f ${DOKCERFILE} -t ${BENCHMARK} .
+		RESULT=$(docker run ${BENCHMARK})
+	else
+		RESULT=$(${BENCHMARK_SCRIPT})
+	fi
+    
 
     echo "[$CURRENT_TIME_NICE] $BENCHMARK benchmark result $RESULT"
     echo "$CURRENT_TIME,$RESULT" >> ${RESULT_FILE}
