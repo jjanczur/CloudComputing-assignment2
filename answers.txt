@@ -8,15 +8,26 @@ Group 29
 CPU benchmark questions:
 1. Look at your LINPACK measurements. How do they differ between the platforms, what are the main reasons for the differences?
 
-
+Native CPU benchmark - Avg.	3387000,94 KFLOPS
+KVM CPU benchmark - Avg.	3383373,01 KFLOPS
+No KVM CPU benchmark - Avg.	49485,31 KFLOPS
 
 Memory benchmark questions:
 1. Look at your memsweep measurements. How do they differ between the platforms, what are the main reasons for the differences?
 
+Native memory benchmark - Avg. 0,34 s
+KVM memory benchmark - Avg. 0,52 s
+No KVM memory benchmark - Avg. 20,47 s
 
 
 Disk benchmark questions:
 1. Look at your disk write measurements. How do they differ between the platforms, what are the main reasons for the differences?
+
+Native disk random write benchmark - Avg. 787,73 IOPS
+KVM disk random write benchmark - Avg. 1038,48 IOPS
+No KVM disk random write benchmark - Avg. 560,60 IOPS
+
+
 
 2. Which disk format did you use for qemu? How do you expect this benchmark to behave differently on other disk formats?
 
@@ -25,9 +36,18 @@ Disk benchmark questions:
 Fork benchmark questions:
 1. Look at your fork sum measurements. How do they differ between the platforms, what are the main reasons for the differences?
 
-
+Native CPU benchmark - Avg. 0,81 s
+KVM CPU benchmark - Avg. 1,02 s
+No KVM CPU benchmark - Avg. 17,93 s
 
 Nginx benchmark questions:
 1. Look at your nginx measurements. How do they differ between the platforms, what are the main reasons for the differences?
 
+Native CPU benchmark - Avg. s
+KVM CPU benchmark - Avg. s
+No KVM CPU benchmark - Avg. s
+
 2. How are these measurements related to the disk benchmark findings?
+
+
+
