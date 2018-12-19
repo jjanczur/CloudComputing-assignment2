@@ -8,24 +8,27 @@ Group 29
 CPU benchmark questions:
 1. Look at your LINPACK measurements. How do they differ between the platforms, what are the main reasons for the differences?
 
-Native CPU benchmark - Avg.	3387000,94 KFLOPS
-KVM CPU benchmark - Avg.	3383373,01 KFLOPS
-No KVM CPU benchmark - Avg.	49485,31 KFLOPS
+Native - Avg. 3387000,94 KFLOPS
+KVM    - Avg. 3383373,01 KFLOPS
+No KVM - Avg. 49485,31 KFLOPS
+Docker - Avg. 3435431,58 KFLOPS
 
 Memory benchmark questions:
 1. Look at your memsweep measurements. How do they differ between the platforms, what are the main reasons for the differences?
 
-Native memory benchmark - Avg. 0,34 s
-KVM memory benchmark - Avg. 0,52 s
-No KVM memory benchmark - Avg. 20,47 s
+Native - Avg. 0,34 s
+KVM    - Avg. 0,52 s
+No KVM - Avg. 20,47 s
+Docker - Avg. 0,34 s
 
 
 Disk benchmark questions:
 1. Look at your disk write measurements. How do they differ between the platforms, what are the main reasons for the differences?
 
-Native disk random write benchmark - Avg. 787,73 IOPS
-KVM disk random write benchmark - Avg. 1038,48 IOPS
-No KVM disk random write benchmark - Avg. 560,60 IOPS
+Native - Avg. 787,73 IOPS
+KVM    - Avg. 1038,48 IOPS
+No KVM - Avg. 560,60 IOPS
+Docker - Avg. 381,17 IOPS
 
 
 
@@ -36,16 +39,18 @@ No KVM disk random write benchmark - Avg. 560,60 IOPS
 Fork benchmark questions:
 1. Look at your fork sum measurements. How do they differ between the platforms, what are the main reasons for the differences?
 
-Native CPU benchmark - Avg. 0,81 s
-KVM CPU benchmark - Avg. 1,02 s
-No KVM CPU benchmark - Avg. 17,93 s
+Native - Avg. 0,81 s
+KVM    - Avg. 1,02 s
+No KVM - Avg. 17,93 s
+Docker - Avg. 1,03 s
 
 Nginx benchmark questions:
 1. Look at your nginx measurements. How do they differ between the platforms, what are the main reasons for the differences?
 
-Native CPU benchmark - Avg. s
-KVM CPU benchmark - Avg. s
-No KVM CPU benchmark - Avg. s
+Native - Avg. 0,14 s
+KVM    - Avg. 40,19 s
+No KVM - Avg. 64,06 s
+Docker - Avg. 0,17 s
 
 2. How are these measurements related to the disk benchmark findings?
 
