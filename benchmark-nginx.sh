@@ -17,13 +17,8 @@ for BENCHMARK in nginx; do
         echo "time,value" > ${RESULT_FILE}
     fi
 
-	if [ "$PROVIDER" = "docker" ]; then
-		docker build -f ${DOKCERFILE} -t ${BENCHMARK} .
-		RESULT=$(docker run ${BENCHMARK})
-	else
-		RESULT=$(${BENCHMARK_SCRIPT} $1)
-	fi
-    
+    RESULT=$(${BENCHMARK_SCRIPT} $1)
+
 
     echo "[$CURRENT_TIME_NICE] $BENCHMARK benchmark result $RESULT"
     echo "$CURRENT_TIME,$RESULT" >> ${RESULT_FILE}

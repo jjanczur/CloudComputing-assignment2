@@ -105,6 +105,14 @@ WARNING: No swap limit support
 QEMU emulator version 2.11.1(Debian 1:2.11+dfsg-1ubuntu7.8)
 Copyright (c) 2003-2017 Fabrice Bellard and the QEMU Project developers
 
+# nginx -v
+
+nginx version: nginx/1.14.0 (Ubuntu)
+
+# nginx -v # on the docker image
+
+nginx version: nginx/1.10.3
+
 ############# Guest system (no kvm)
 
 # cat /proc/cpuinfo
@@ -160,3 +168,7 @@ power management:
 # uname -a
 
 Linux debian-amd64 3.2.0-4-amd64 #1 SMP Debian 3.2.96-2 x86_64 GNU/Linux
+
+# nginx -v
+
+nginx version: nginx/1.2.1

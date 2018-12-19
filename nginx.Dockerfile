@@ -15,8 +15,7 @@ RUN \
   echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
   chown -R www-data:www-data /var/lib/nginx
 
-# MODIFY THIS - USE BIGGER FILE
-COPY answers.txt /var/www/html/answers.txt
+RUN fallocate -l 512M /var/www/html/big-file.txt
 
 # Define working directory.
 WORKDIR /etc/nginx
