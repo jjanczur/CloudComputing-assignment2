@@ -10,25 +10,29 @@ CPU benchmark questions:
 
 Native - Avg. 3387000,94 KFLOPS
 KVM    - Avg. 3383373,01 KFLOPS
-No KVM - Avg. 49485,31 KFLOPS
+No KVM - Avg.   49485,31 KFLOPS
 Docker - Avg. 3435431,58 KFLOPS
 
 Memory benchmark questions:
 1. Look at your memsweep measurements. How do they differ between the platforms, what are the main reasons for the differences?
 
-Native - Avg. 0,34 s
-KVM    - Avg. 0,52 s
+Native - Avg.  0,34 s
+KVM    - Avg.  0,52 s
 No KVM - Avg. 20,47 s
-Docker - Avg. 0,34 s
+Docker - Avg.  0,34 s
+
+In case of Docker, direct access to the MMU is performed => no overhead.
+In case of KVM, a dedicated hardware unit is used to translate Guest Physical Address into Host Physical Address => small overhead.
+In case of No KVM, shadow page tables are used. Every page fault leads to a so-called VM exit, i.e. switching the contexts from the guest to the host => quite expensive.
 
 
 Disk benchmark questions:
 1. Look at your disk write measurements. How do they differ between the platforms, what are the main reasons for the differences?
 
-Native - Avg. 787,73 IOPS
+Native - Avg.  787,73 IOPS
 KVM    - Avg. 1038,48 IOPS
-No KVM - Avg. 560,60 IOPS
-Docker - Avg. 381,17 IOPS
+No KVM - Avg.  560,60 IOPS
+Docker - Avg.  381,17 IOPS
 
 
 
@@ -39,18 +43,20 @@ Docker - Avg. 381,17 IOPS
 Fork benchmark questions:
 1. Look at your fork sum measurements. How do they differ between the platforms, what are the main reasons for the differences?
 
-Native - Avg. 0,81 s
-KVM    - Avg. 1,02 s
+Native - Avg.  0,81 s
+KVM    - Avg.  1,02 s
 No KVM - Avg. 17,93 s
-Docker - Avg. 1,03 s
+Docker - Avg.  1,03 s
+
+In case of No KVM, privileged instructions, needed for a fork, have to be trapped and emulated.
 
 Nginx benchmark questions:
 1. Look at your nginx measurements. How do they differ between the platforms, what are the main reasons for the differences?
 
-Native - Avg. 0,14 s
+Native - Avg.  0,14 s
 KVM    - Avg. 40,19 s
 No KVM - Avg. 64,06 s
-Docker - Avg. 0,17 s
+Docker - Avg.  0,17 s
 
 2. How are these measurements related to the disk benchmark findings?
 
