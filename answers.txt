@@ -13,7 +13,7 @@ KVM    - Avg. 3383373,01 KFLOPS
 No KVM - Avg.   49485,31 KFLOPS
 Docker - Avg. 3435431,58 KFLOPS
 
-Benchmarks on native machine, KVM and Docker virtual machines yield similar results. Virtualization without KVM is much slower. This happens, because emulation of the CPU done by QEMU is software based, thus it applies noticeable overhead.
+Benchmarks on native machine, KVM and Docker virtual machines yield similar results. CPU on QEMU without KVM is much slower. This happens, because emulation of the CPU done by QEMU is software based, thus it applies noticeable overhead.
 
 Memory benchmark questions:
 1. Look at your memsweep measurements. How do they differ between the platforms, what are the main reasons for the differences?
