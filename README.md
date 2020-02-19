@@ -1,6 +1,6 @@
 # CloudComputing-assignment2
 
-This is the repo imported from TU Berlin GitLab with the code for the assignment 1 in Cloud Computing course. 
+This is the repo imported from TU Berlin GitLab with the code for the assignment 2 in Cloud Computing course. 
 
 We got **maximum number of points**, so enjoy our work.    
 If you find it useful, you can give us a star.
