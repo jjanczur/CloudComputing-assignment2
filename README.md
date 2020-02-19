@@ -5,9 +5,8 @@ This is the repo imported from TU Berlin GitLab with the code for the assignment
 We got **maximum number of points**, so enjoy our work.    
 If you find it useful, you can give us a star.
 
-# Tasks:
+## Tasks:
 
-Summary:
 * Work on 1 host machine
    * Preferably your laptop (physical machine). If you don’t have Linux, use a VM.
 * Prepare virtualization environments:
