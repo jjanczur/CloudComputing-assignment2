@@ -5,6 +5,19 @@ This is the repo imported from TU Berlin GitLab with the code for the assignment
 We got **maximum number of points**, so enjoy our work.    
 If you find it useful, you can give us a star.
 
+# Tasks:
+
+Summary:
+* Work on 1 host machine
+   * Preferably your laptop (physical machine). If you don’t have Linux, use a VM.
+* Prepare virtualization environments:
+   * Qemu/KVM
+   * Docker
+* Write 2 new benchmarks:
+   * Forksum
+   * Nginx
+* Execute benchmarks on different virtualization platforms
+
 # CPU benchmark questions:
 
 ## 1. Look at your LINPACK measurements. How do they differ between the platforms, what are the main reasons for the differences?
